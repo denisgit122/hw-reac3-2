@@ -1,10 +1,16 @@
 import './css/UserForm.css'
 import {useForm} from "react-hook-form";
-const UsersForm = () => {
+import {userService} from "../service/userService";
+
+const UsersForm = ({setPosts}) => {
+
 const {register,handleSubmit,reset}=useForm()
 
-const onsubmi = (data) => {
+const onsubmi = async (dat) => {
     console.log(data);
+    const {data} =await userService.create(dat)
+    console.log(data);
+    // setPosts(prev=>[...prev,data])
 }
 return (
 

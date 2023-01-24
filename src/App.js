@@ -16,7 +16,7 @@ function App() {
     return (
     <div className="App">
 
-        <UsersForm/>
+        <UsersForm setPosts={setPosts}/>
 <hr/>
         <Users users={users}/>
     </div>
