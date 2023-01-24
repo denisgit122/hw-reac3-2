@@ -2,14 +2,23 @@ import logo from './logo.svg';
 import './App.css';
 import {Users} from "./components/Users";
 import {UsersForm} from "./components/UsersForm";
+import {useEffect, useState} from "react";
+import {userService} from "./service/userService";
 
 function App() {
-  return (
+
+    const [users, setPosts]= useState([])
+
+    useEffect(() => {
+        userService.getAll().then(value => value.data).then(value => setPosts(value))
+    },[])
+
+    return (
     <div className="App">
 
         <UsersForm/>
 <hr/>
-        <Users/>
+        <Users users={users}/>
     </div>
   );
 }
