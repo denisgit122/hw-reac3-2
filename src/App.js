@@ -8,7 +8,7 @@ import {userService} from "./service/userService";
 function App() {
 
     const [users, setPosts]= useState([])
-
+    console.log(users);
     useEffect(() => {
         userService.getAll().then(value => value.data).then(value => setPosts(value))
     },[])

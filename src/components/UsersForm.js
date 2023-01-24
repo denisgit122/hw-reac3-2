@@ -6,11 +6,11 @@ const UsersForm = ({setPosts}) => {
 
 const {register,handleSubmit,reset}=useForm()
 
-const onsubmi = async (dat) => {
+const onsubmi = async(dat) => {
+
+    const data = await userService.create(dat).then(value => value.data).then(value => value)
     console.log(data);
-    const {data} =await userService.create(dat)
-    console.log(data);
-    // setPosts(prev=>[...prev,data])
+    setPosts(prev=>[...prev,data])
 }
 return (
 
